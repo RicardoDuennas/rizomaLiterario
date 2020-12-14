@@ -2345,8 +2345,6 @@
 			display: inline-block;
 			margin: 0 0 2em 0;
 			padding: 0.5em;
-			border: solid 1px rgba(255, 255, 255, 0.25);
-			background-color: rgba(255, 255, 255, 0.075);
 		}
 
 			#header .avatar img {
@@ -2392,10 +2390,7 @@
 	width: 500px;
 	height: 100px;
 	margin: 0 auto;
-  background-color: #34495e;
   color: #fff;
-  border: 6px solid #2c3e50;
-  border-radius: 10px;
 	
 	display: grid;
 	grid-template: repeat(1, 1fr) / repeat(5, 1fr);
@@ -2403,13 +2398,10 @@
 
 .game-board
 {
-	width: 500px;
-	height: 500px;
+	width: 400px;
+	height: 400px;
 	margin: 0 auto;
-  background-color: #34495e;
   color: #fff;
-  border: 6px solid #2c3e50;
-  border-radius: 10px;
 	
 	display: grid;
 	grid-template: repeat(4, 1fr) / repeat(4, 1fr);
@@ -2418,8 +2410,6 @@
 
 .box
 {
-  border: 6px solid #2c3e50;
-  border-radius: 2px;
   font-family: Helvetica;
   font-weight: bold;
   font-size: 4em;
