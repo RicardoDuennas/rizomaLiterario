@@ -2389,8 +2389,8 @@
 
 .sound-player
 {
-	width: 1000px;
-	height: 200px;
+	width: 600px;
+	height: 120px;
 	margin: 0 auto;
   background-color: #34495e;
   color: #fff;
@@ -2403,8 +2403,8 @@
 
 .game-board
 {
-	width: 800px;
-	height: 800px;
+	width: 500px;
+	height: 500px;
 	margin: 0 auto;
   background-color: #34495e;
   color: #fff;
