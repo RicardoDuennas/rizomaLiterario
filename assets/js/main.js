@@ -11,6 +11,11 @@ $(function() {
 			$body = $('body'),
 			$wrapper = $('#wrapper');
 		var	Places = [];
+		var posP = 0;
+		var audioElement = $('#myAudio')[0];
+		var playing = false;
+
+
 
 	// Breakpoints.
 		skel.breakpoints({
@@ -49,42 +54,70 @@ $(function() {
 
 
 	  	$(".im").click(function(event) {
-        	srcid = (event.target.id);
-        	var tmp = Places.length; 
-        	if (tmp < 4){
-	        	Places.push(srcid);
-	        	var tmpsrc = ("BtnPos"+(tmp+1).toString());
-				document.getElementById(tmpsrc).src = "src/"+srcid+".png";		
-				console.log(Places);
-        	}
+			if(!playing) {
+	        	srcid = (event.target.id);
+	        	var tmp = Places.length; 
+	        	if (tmp < 4){
+		        	Places.push(srcid);
+		        	var tmpsrc = ("BtnPos"+(tmp+1).toString());
+					document.getElementById(tmpsrc).src = "src/"+srcid+".png";		
+					console.log(Places);
+	        	}
+	        }
 		});
 
 	  	$(".cn").click(function(event) {
-        	source = (event.target.src);
-        	var tmp = Places.length; 
-        	if (tmp > 0){
-	        	var tmpsrc = ("BtnPos"+(tmp).toString());
-				document.getElementById(tmpsrc).src = "src/Casilla01.png";		
-	        	Places.pop(source);
-				console.log(Places);
-        	}
+			if(!playing) {
+	        	source = (event.target.src);
+	        	var tmp = Places.length; 
+	        	if (tmp > 0){
+		        	var tmpsrc = ("BtnPos"+(tmp).toString());
+					document.getElementById(tmpsrc).src = "src/Casilla01.png";		
+		        	Places.pop(source);
+	        	}
+	        }
 		});
 
+		$('#myAudio').on('playing', function() {
+		   playing = true;
+		   // disable button/link
+		});
+		$('#myAudio').on('ended', function() {
+		   playing = false;
+			Places.shift();
+			console.log(posP);
+        	var tmp = Places.length; 
+        	if (tmp > 0){
+	        	var tmpsrc = ("BtnPos"+(posP).toString());
+				document.getElementById(tmpsrc).src = "src/Casilla01.png";		
+        	}
+			console.log(Places);
 
-	var audionameslist = "audiolib/1.mp3,audiolib/2.mp3,audiolib/3.mp3";
-    var audionamesarray = audionameslist.split(',');
-    var audio = new Audio(audionamesarray[0]);
+			playNext();
+		   // enable button/link
+		});
 
-    audio.src=audionamesarray[0];
-    audio.play();
+		$(".pl").click(function (event) {
+			playNext();
+		});
 
-    index=0;
-    audio.onended = function() {
-    if(index < audionamesarray.length){
-        audio.src=audionamesarray[index+1];
-        audio.play();
-        index++;
-        }
-    };
+	    function playNext()  
+	    {  
+			if(!playing) {
 
+		   		if (Places.length > 0){
+			      var oggVar = ("src/snd/"+Places[0] +".mp3");   
+			      audioElement.setAttribute('src', oggVar); 
+			      audioElement.play();
+			      posP += 1;
+		   		} else {
+		   			posP = 0;
+		   			Places = [];
+					document.getElementById("BtnPos1").src = "src/Casilla01.png";		
+					document.getElementById("BtnPos2").src = "src/Casilla01.png";		
+					document.getElementById("BtnPos3").src = "src/Casilla01.png";		
+					document.getElementById("BtnPos4").src = "src/Casilla01.png";		
+		   		}
+			}  
+		}
 });

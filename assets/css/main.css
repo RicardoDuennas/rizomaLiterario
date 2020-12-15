@@ -2350,7 +2350,6 @@
 
 			#header .avatar img {
 				display: block;
-				width: 10em;
 			}
 
 		@media screen and (max-width: 500px) {
