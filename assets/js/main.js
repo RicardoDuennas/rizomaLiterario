@@ -49,16 +49,14 @@ $(function() {
 
 
 	  	$(".im").click(function(event) {
-        	source = (event.target.src);
+        	srcid = (event.target.id);
         	var tmp = Places.length; 
         	if (tmp < 4){
-	        	Places.push(source);
+	        	Places.push(srcid);
 	        	var tmpsrc = ("BtnPos"+(tmp+1).toString());
-	        	console.log(tmpsrc);
-				document.getElementById(tmpsrc).src = source;		
+				document.getElementById(tmpsrc).src = "src/"+srcid+".png";		
+				console.log(Places);
         	}
-//			console.log(event.target.src);
-        	//console.log(Places.length);
 		});
 
 	  	$(".cn").click(function(event) {
@@ -68,14 +66,8 @@ $(function() {
 	        	var tmpsrc = ("BtnPos"+(tmp).toString());
 				document.getElementById(tmpsrc).src = "src/Casilla01.png";		
 	        	Places.pop(source);
-
-
-//	        	var tmpsrc = ("BtnPos"+(tmp+1).toString());
-//	        	console.log(tmpsrc);
-//				document.getElementById(tmpsrc).src = source;		
+				console.log(Places);
         	}
-//			console.log(event.target.src);
-        	//console.log(Places.length);
 		});
 
 
