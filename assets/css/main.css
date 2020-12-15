@@ -2353,7 +2353,7 @@
 				width: 10em;
 			}
 
-		@media screen and (max-width: 1280px) {
+		@media screen and (max-width: 500px) {
 
 			#header {
 				padding: 4em 0 2em 0;
@@ -2390,7 +2390,7 @@
 
 .sound-player
 {
-	width: 500px;
+	width: 450px;
 	height: 100px;
 	margin: 0 auto;
   color: #fff;

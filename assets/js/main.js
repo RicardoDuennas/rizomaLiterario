@@ -71,5 +71,20 @@ $(function() {
 		});
 
 
+	var audionameslist = "audiolib/1.mp3,audiolib/2.mp3,audiolib/3.mp3";
+    var audionamesarray = audionameslist.split(',');
+    var audio = new Audio(audionamesarray[0]);
+
+    audio.src=audionamesarray[0];
+    audio.play();
+
+    index=0;
+    audio.onended = function() {
+    if(index < audionamesarray.length){
+        audio.src=audionamesarray[index+1];
+        audio.play();
+        index++;
+        }
+    };
 
 });
